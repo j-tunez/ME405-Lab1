@@ -2,17 +2,25 @@ class Motordriver:
     """!
     This class implements a motor driver for an ME405 kit.  
     """
-    def __init__(self, en_pin, in1pin, in2pin, timer):
+    def __init__(self, enab_pin, in1pin, in2pin, timer):
         """!
         Creates a motor driver by initializing GPIO
         pins and turning off the motor for safety. 
         @param en_pin (There will be several pin parameters)
         
         """
-        self.en_pin = en_pin
+        self.enab_pin = enab_pin
         self.in1pin = in1pin
         self.in2pin = in2pin
         self.timer = timer
+
+        self.enab_pin = pyb.Pin(enab_pin, Pin.OUT_OD)
+        self.in1pin = pyb.Pin(in1pin, pyb.Pin.OUT_PP)
+        self.in2pin = pyb.Pin(in2pin, pyb.Pin.OUT_PP)
+
+        tim3 = pyb.Timer (3, freq=20000)
+        self.t3ch1 = tim3.channel (1, pyb.Timer.PWM, pin=self.in1pin)
+        self.t3ch2 = tim3.channel (2, pyb.Timer.PWM, pin=self.in2pin)
 
     def set_duty_cycle (self, level):
         """!
@@ -23,4 +31,14 @@ class Motordriver:
         @param level A signed integer holding the duty
                cycle of the voltage sent to the motor 
         """
+        if level > 0:
+            pyb.Pin.value(self.enab_pin,True)
+            self.t3ch1.pulsewidthpercent(0)
+            self.t3ch2.pulsewidthpercent(level)
+        elif level < 0:
+            pyb.Pin.value(self.enab_pin,True)
+            self.t3ch1.pulsewidthpercent(level)
+            self.t3ch2.pulsewidthpercent(False)
+        else:
+            pyb.pin.value(self.enab_pin,False)
         print (f"Setting duty cycle to {level}")
