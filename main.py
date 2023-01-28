@@ -7,10 +7,6 @@ import time
 def setup():
     pass
     
-
-    
-
-    
 def main():
     
 #     pinB6 = pyb.Pin (pyb.Pin.board.PB6, pyb.Pin.OUT_PP) 
@@ -27,15 +23,19 @@ def main():
       pinC7 = pyb.Pin (pyb.Pin.board.PC7, pyb.Pin.OUT_PP) 
       t8ch2 = tim8.channel (2, pyb.Timer.ENC_AB, pin=pinC7)
       
-      pinPA10 = pyb.Pin (pyb.Pin.board.PA10, pyb.Pin.OUT_PP)
-      pinPB4 = pyb.Pin (pyb.Pin.board.PB4, pyb.Pin.OUT_PP)
-      pinPB5 = pyb.Pin (pyb.Pin.board.PB5, pyb.Pin.OUT_PP)
+      ENA = pyb.Pin (pyb.Pin.board.PA10, pyb.Pin.OUT_OD, pyb.Pin.PULL_UP)
+      IN1A = pyb.Pin (pyb.Pin.board.PB4, pyb.Pin.OUT_PP)
+      IN2A = pyb.Pin (pyb.Pin.board.PB5, pyb.Pin.OUT_PP)
       
-      t3ch1 = tim3.channel (1, pyb.Timer.PWM, pin=pinB4)
-      t3ch2 = tim3.channel (2, pyb.Timer.PWM, pin=pinB5)
+    
+      ENA.high()
+      
+      t3ch1 = tim3.channel (1, pyb.Timer.PWM, pin=IN1A)
+      t3ch2 = tim3.channel (2, pyb.Timer.PWM, pin=IN2A)
+      
       
       t3ch1.pulse_width_percent (50)
-      t3ch2.pulse_width_percent (50)
+      t3ch2.pulse_width_percent (0)
       
 
       while True:
