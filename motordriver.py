@@ -6,15 +6,15 @@ class Motordriver:
         """!
         Creates a motor driver by initializing GPIO
         pins and turning off the motor for safety. 
-        @param en_pin (There will be several pin parameters)
+        @param enab_pin (There will be several pin parameters)
         
         """
-        self.enab_pin = enab_pin
-        self.in1pin = in1pin
-        self.in2pin = in2pin
+        #self.enab_pin = enab_pin
+        #self.in1pin = in1pin
+        #self.in2pin = in2pin
         self.timer = timer
 
-        self.enab_pin = pyb.Pin(enab_pin, Pin.OUT_OD)
+        self.enab_pin = pyb.Pin(enab_pin, Pin.OUT_OD, pull = Pin.PULL_UP)
         self.in1pin = pyb.Pin(in1pin, pyb.Pin.OUT_PP)
         self.in2pin = pyb.Pin(in2pin, pyb.Pin.OUT_PP)
 
@@ -31,14 +31,15 @@ class Motordriver:
         @param level A signed integer holding the duty
                cycle of the voltage sent to the motor 
         """
-        if level > 0:
-            self.enab_pin.high()
+        if level > 0 and self.enab_pin == True:
             self.t3ch1.pulsewidthpercent(0)
             self.t3ch2.pulsewidthpercent(level)
-        elif level < 0:
-            self.enab_pin.high()
+       
+        elif level < 0 and self.enab_pin == True:
             self.t3ch1.pulsewidthpercent(level)
-            self.t3ch2.pulsewidthpercent(False)
+            self.t3ch2.pulsewidthpercent(0)
+        
         else:
-            self.enab_pin.low()
+            self.t3ch1.pulsewidthpercent(0)
+            self.t3ch2.pulsewidthpercent(0)
         print (f"Setting duty cycle to {level}")
