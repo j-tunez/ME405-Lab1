@@ -32,13 +32,13 @@ class Motordriver:
                cycle of the voltage sent to the motor 
         """
         if level > 0:
-            pyb.Pin.value(self.enab_pin,True)
+            self.enab_pin.high()
             self.t3ch1.pulsewidthpercent(0)
             self.t3ch2.pulsewidthpercent(level)
         elif level < 0:
-            pyb.Pin.value(self.enab_pin,True)
+            self.enab_pin.high()
             self.t3ch1.pulsewidthpercent(level)
             self.t3ch2.pulsewidthpercent(False)
         else:
-            pyb.pin.value(self.enab_pin,False)
+            self.enab_pin.low()
         print (f"Setting duty cycle to {level}")
