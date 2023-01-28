@@ -1,3 +1,6 @@
+
+import pyb
+
 class Motordriver:
     """!
     This class implements a motor driver for an ME405 kit.  
