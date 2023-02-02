@@ -1,3 +1,7 @@
+"""@package docstring
+Lab 1 - Motor Driver
+"""
+
 import pyb
 
 class MotorDriver:
@@ -8,8 +12,10 @@ class MotorDriver:
         """!
         Creates a motor driver by initializing GPIO
         pins and turning off the motor for safety. 
-        @param enab_pin (There will be several pin parameters)
-        
+        @param enab_pin Pin to enable motor power.
+        @param in1pin A Pin object, the first PWM pin for the motor input.
+        @param in2pin A Pin object, the second PWM pin for the motor input.
+        @param timer A Timer object, the timer used for controlling PWM signals to the motor.
         """
         self.enab_pin = enab_pin
         self.in1pin = in1pin
