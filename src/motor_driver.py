@@ -1,5 +1,8 @@
-"""@package docstring
+"""!
+@package docstring
 Lab 1 - Motor Driver
+
+@file motor_driver.py
 """
 
 import pyb

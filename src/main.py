@@ -1,12 +1,12 @@
-"""! @package docstring
+"""!@package docstring
 @file main.py
-This code runs a motor and reads from the encoder
-
-TODO: run a motor and ready the resulting encoder changes
+@brief This code runs a motor and reads from the encoder
+@details This code uses timers 3,5,and 8, and pins PC6,PC7,PA10,PB4, and PB5 to controll a motor and an encoder
 
 @author Team01
 @date 1-18-22
 """
+
 import pyb
 import time
 import motor_driver

@@ -167,7 +167,10 @@ Public Attributes</h2></td></tr>
 <p>Creates a motor driver by initializing GPIO pins and turning off the motor for safety. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">enab_pin</td><td>(There will be several pin parameters) </td></tr>
+    <tr><td class="paramname">enab_pin</td><td>Pin to enable motor power. </td></tr>
+    <tr><td class="paramname">in1pin</td><td>A Pin object, the first PWM pin for the motor input. </td></tr>
+    <tr><td class="paramname">in2pin</td><td>A Pin object, the second PWM pin for the motor input. </td></tr>
+    <tr><td class="paramname">timer</td><td>A Timer object, the timer used for controlling PWM signals to the motor. </td></tr>
   </table>
   </dd>
 </dl>
@@ -212,7 +215,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/motor_driver.py</li>
+<li>src/<a class="el" href="motor__driver_8py.html">motor_driver.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

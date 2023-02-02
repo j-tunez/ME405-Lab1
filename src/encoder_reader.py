@@ -1,3 +1,9 @@
+"""!
+@package docstring
+Lab 1 - Motor Driver
+
+@file encoder_reader.py
+"""
 import pyb
 
 class EncoderReader:
@@ -8,12 +14,12 @@ class EncoderReader:
     
     def __init__(self,enca,encb,tim):
 
-        """
+        """!
         @brief Create the EncoderReader
 
-        @param Pin object for encoder pin A
-        @param Pin object for encoder pin B
-        @param Timer object for for the encoder
+        @param enca Pin object for encoder pin A
+        @param encb Pin object for encoder pin B
+        @param tim Timer object for for the encoder
 
         """
 
@@ -34,7 +40,7 @@ class EncoderReader:
 
     def zero(self):
 
-        """
+        """!
         @brief Reset the position of the encoder to zero
 
         @returns Current position of the encoder
@@ -45,10 +51,10 @@ class EncoderReader:
 
     def read(self):
 
-        """
+        """!
         @brief Read the current position of the encoder
 
-        @returns int: Current position of the encoder
+        @returns Current position of the encoder
         """
         
         self.delt = self.encnow - self.encthen

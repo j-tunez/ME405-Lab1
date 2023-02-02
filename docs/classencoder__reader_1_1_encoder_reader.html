@@ -88,10 +88,13 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a771e9ed21c1d6733ce0c257255de4509"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classencoder__reader_1_1_encoder_reader.html#a771e9ed21c1d6733ce0c257255de4509">__init__</a> (self, enca, encb, tim)</td></tr>
+<tr class="memdesc:a771e9ed21c1d6733ce0c257255de4509"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create the EncoderReader.  <br /></td></tr>
 <tr class="separator:a771e9ed21c1d6733ce0c257255de4509"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2dbc8d461fe62bfa0461f99b644d9b02"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classencoder__reader_1_1_encoder_reader.html#a2dbc8d461fe62bfa0461f99b644d9b02">zero</a> (self)</td></tr>
+<tr class="memdesc:a2dbc8d461fe62bfa0461f99b644d9b02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the position of the encoder to zero.  <br /></td></tr>
 <tr class="separator:a2dbc8d461fe62bfa0461f99b644d9b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9801116bbe535134eb87de5e513394d3"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classencoder__reader_1_1_encoder_reader.html#a9801116bbe535134eb87de5e513394d3">read</a> (self)</td></tr>
+<tr class="memdesc:a9801116bbe535134eb87de5e513394d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the current position of the encoder.  <br /></td></tr>
 <tr class="separator:a9801116bbe535134eb87de5e513394d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -126,7 +129,6 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class is used to read and keep track of the position of an encoder. </p>
-<p>Attributes: encpin1 (Pin): Pin object for encoder pin A encpin2 (Pin): Pin object for encoder pin B timer (Timer): Timer object for timing encthen (int): Counter value of the encoder during the last read position (int): Current position of the encoder encnow (int): Current counter value of the encoder tch1 (Channel): Channel object for timer channel 1 tch2 (Channel): Channel object for timer channel 2 delt (int): Change in encoder position since the last read </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a771e9ed21c1d6733ce0c257255de4509" name="a771e9ed21c1d6733ce0c257255de4509"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a771e9ed21c1d6733ce0c257255de4509">&#9670;&#160;</a></span>__init__()</h2>
@@ -165,12 +167,17 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Constructor method for the EncoderReader class.
 
-Parameters:
-    enca (Pin): Pin object for encoder pin A
-    encb (Pin): Pin object for encoder pin B
-    tim (Timer): Timer object for timing</pre> 
+<p>Create the EncoderReader. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enca</td><td>Pin object for encoder pin A </td></tr>
+    <tr><td class="paramname">encb</td><td>Pin object for encoder pin B </td></tr>
+    <tr><td class="paramname">tim</td><td>Timer object for for the encoder </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -189,10 +196,10 @@ Parameters:
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Read the current position of the encoder.
 
-Returns:
-    int: Current position of the encoder</pre> 
+<p>Read the current position of the encoder. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current position of the encoder </dd></dl>
+
 </div>
 </div>
 <a id="a2dbc8d461fe62bfa0461f99b644d9b02" name="a2dbc8d461fe62bfa0461f99b644d9b02"></a>
@@ -210,14 +217,14 @@ Returns:
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Reset the position of the encoder to zero.
 
-Returns:
-    int: Current position of the encoder</pre> 
+<p>Reset the position of the encoder to zero. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current position of the encoder </dd></dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/encoder_reader.py</li>
+<li>src/<a class="el" href="encoder__reader_8py.html">encoder_reader.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
