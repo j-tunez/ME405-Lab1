@@ -28,6 +28,7 @@ class MotorDriver:
         @param level A signed integer holding the duty
                cycle of the voltage sent to the motor 
         """
+        level = -level
         self.enab_pin.high()
         
         if level > 0:

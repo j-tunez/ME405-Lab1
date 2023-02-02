@@ -17,7 +17,7 @@ def main():
 #     tim4 = pyb.Timer (4, freq=30)
 #     ch1 = tim4.channel (1, pyb.Timer.ENC_AB, pin=pinB6)
 
-      tim8 = pyb.Timer (8, freq=30)
+      tim8 = pyb.Timer (8, prescaler=0, period=0xFFFF)
       tim3 = pyb.Timer (3, freq=20000)
       tim5 = pyb.Timer (5, freq=20000)
 
@@ -27,9 +27,6 @@ def main():
       
       
       encreader = encoder_reader.EncoderReader(pinC6, pinC7, tim8)
-      
-    
-   
       
       ENA = pyb.Pin (pyb.Pin.board.PA10, pyb.Pin.OUT_OD, pyb.Pin.PULL_UP)
       IN1A = pyb.Pin (pyb.Pin.board.PB4, pyb.Pin.OUT_PP)
@@ -42,13 +39,14 @@ def main():
       p = True
 
       while True:
-          print(encreader.zero())
+          print("COUNTER", tim8.counter())
+          print(encreader.read())
           time.sleep(1)
           if p == True:
               mdriver.set_duty_cycle(20)
               p = False
           else:
-              mdriver.set_duty_cycle(90)
+              mdriver.set_duty_cycle(20)
               p = True
               
     
