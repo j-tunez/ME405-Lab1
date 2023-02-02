@@ -1,30 +1,19 @@
 import pyb
 
 class EncoderReader:
+
     """!
-    This class is used to read and keep track of the position of an encoder.
-
-    Attributes:
-        encpin1 (Pin): Pin object for encoder pin A
-        encpin2 (Pin): Pin object for encoder pin B
-        timer (Timer): Timer object for timing
-        encthen (int): Counter value of the encoder during the last read
-        position (int): Current position of the encoder
-        encnow (int): Current counter value of the encoder
-        tch1 (Channel): Channel object for timer channel 1
-        tch2 (Channel): Channel object for timer channel 2
-        delt (int): Change in encoder position since the last read
-
+    @brief This class is used to read and keep track of the position of an encoder
     """
+    
     def __init__(self,enca,encb,tim):
 
         """
-        Constructor method for the EncoderReader class.
+        @brief Create the EncoderReader
 
-        Parameters:
-            enca (Pin): Pin object for encoder pin A
-            encb (Pin): Pin object for encoder pin B
-            tim (Timer): Timer object for timing
+        @param Pin object for encoder pin A
+        @param Pin object for encoder pin B
+        @param Timer object for for the encoder
 
         """
 
@@ -46,10 +35,9 @@ class EncoderReader:
     def zero(self):
 
         """
-        Reset the position of the encoder to zero.
+        @brief Reset the position of the encoder to zero
 
-        Returns:
-            int: Current position of the encoder
+        @returns Current position of the encoder
 
         """
         
@@ -58,11 +46,9 @@ class EncoderReader:
     def read(self):
 
         """
-        Read the current position of the encoder.
+        @brief Read the current position of the encoder
 
-        Returns:
-            int: Current position of the encoder
-
+        @returns int: Current position of the encoder
         """
         
         self.delt = self.encnow - self.encthen
